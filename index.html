@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Catálogo de Juegos</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background-color: #f3f4f6;
+            color: #111827;
+            padding: 40px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .card {
+            background: white;
+            border-radius: 25px;
+            padding: 35px;
+            margin-bottom: 30px;
+            box-shadow: 0px 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .title {
+            font-size: 48px;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 18px;
+            color: #6b7280;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .section-title {
+            font-size: 36px;
+            margin-bottom: 25px;
+        }
+
+        .tech-list li {
+            margin-bottom: 12px;
+            font-size: 18px;
+            color: #374151;
+        }
+
+        .base-url {
+            background: #111827;
+            color: #22c55e;
+            padding: 20px;
+            border-radius: 15px;
+            font-size: 20px;
+            overflow-x: auto;
+        }
+
+        .endpoint {
+            border: 1px solid #e5e7eb;
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 20px;
+            transition: 0.3s;
+        }
+
+        .endpoint:hover {
+            transform: scale(1.01);
+            box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .endpoint-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .method {
+            background: black;
+            color: white;
+            padding: 10px 18px;
+            border-radius: 12px;
+            font-weight: bold;
+        }
+
+        .route {
+            color: #2563eb;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .description {
+            color: #6b7280;
+            font-size: 18px;
+        }
+
+        pre {
+            background: #111827;
+            color: #22c55e;
+            padding: 25px;
+            border-radius: 20px;
+            overflow-x: auto;
+            font-size: 15px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            background: #e5e7eb;
+            text-align: left;
+            padding: 15px;
+        }
+
+        td {
+            padding: 15px;
+            border-bottom: 1px solid #d1d5db;
+        }
+
+        .footer {
+            background: black;
+            color: white;
+            text-align: center;
+        }
+
+        .footer p {
+            margin-top: 10px;
+            color: #d1d5db;
+        }
+
+        @media(max-width: 768px) {
+
+            body {
+                padding: 20px;
+            }
+
+            .title {
+                font-size: 36px;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+
+            .endpoint-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- HEADER -->
+        <div class="card">
+            <h1 class="title">API Catálogo de Juegos</h1>
+
+            <p class="subtitle">
+                Documentación oficial de la API REST desarrollada con Spring Boot y MongoDB.
+            </p>
+        </div>
+
+        <!-- TECNOLOGÍAS -->
+        <div class="grid">
+
+            <div class="card">
+                <h2 class="section-title">Tecnologías</h2>
+
+                <ul class="tech-list">
+                    <li>• Spring Boot</li>
+                    <li>• Java</li>
+                    <li>• MongoDB</li>
+                    <li>• Maven</li>
+                    <li>• REST API</li>
+                    <li>• Postman</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2 class="section-title">Base URL</h2>
+
+                <div class="base-url">
+                    http://localhost:8080
+                </div>
+            </div>
+        </div>
+
+        <!-- ENDPOINTS -->
+        <div class="card">
+
+            <h2 class="section-title">Endpoints CRUD</h2>
+
+            <div class="endpoint">
+                <div class="endpoint-header">
+                    <div>
+                        <span class="method">GET</span>
+                        <span class="route">/juegos</span>
+                    </div>
+
+                    <p class="description">
+                        Obtiene todos los juegos registrados.
+                    </p>
+                </div>
+            </div>
+
+            <div class="endpoint">
+                <div class="endpoint-header">
+                    <div>
+                        <span class="method">GET</span>
+                        <span class="route">/juegos/{id}</span>
+                    </div>
+
+                    <p class="description">
+                        Obtiene un juego por ID.
+                    </p>
+                </div>
+            </div>
+
+            <div class="endpoint">
+                <div class="endpoint-header">
+                    <div>
+                        <span class="method">POST</span>
+                        <span class="route">/juegos</span>
+                    </div>
+
+                    <p class="description">
+                        Crea un nuevo juego.
+                    </p>
+                </div>
+            </div>
+
+            <div class="endpoint">
+                <div class="endpoint-header">
+                    <div>
+                        <span class="method">PUT</span>
+                        <span class="route">/juegos/{id}</span>
+                    </div>
+
+                    <p class="description">
+                        Actualiza un juego existente.
+                    </p>
+                </div>
+            </div>
+
+            <div class="endpoint">
+                <div class="endpoint-header">
+                    <div>
+                        <span class="method">DELETE</span>
+                        <span class="route">/juegos/{id}</span>
+                    </div>
+
+                    <p class="description">
+                        Elimina un juego.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- JSON -->
+        <div class="card">
+
+            <h2 class="section-title">Ejemplo JSON</h2>
+
+<pre>{
+  "nombreJuego": "Minecraft",
+  "genero": "Sandbox",
+  "anioLanzamiento": 2011,
+  "activo": true,
+  "descripcion": "Juego de construcción y supervivencia.",
+  "plataforma": "PC",
+  "desarrolladora": "Mojang"
+}</pre>
+        </div>
+
+        <!-- TABLA -->
+        <div class="card">
+
+            <h2 class="section-title">Modelo de Datos</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Campo</th>
+                        <th>Tipo</th>
+                        <th>Descripción</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>id</td>
+                        <td>String</td>
+                        <td>ID generado automáticamente por MongoDB.</td>
+                    </tr>
+
+                    <tr>
+                        <td>nombreJuego</td>
+                        <td>String</td>
+                        <td>Nombre del videojuego.</td>
+                    </tr>
+
+                    <tr>
+                        <td>genero</td>
+                        <td>String</td>
+                        <td>Género del juego.</td>
+                    </tr>
+
+                    <tr>
+                        <td>anioLanzamiento</td>
+                        <td>int</td>
+                        <td>Año de lanzamiento.</td>
+                    </tr>
+
+                    <tr>
+                        <td>activo</td>
+                        <td>boolean</td>
+                        <td>Estado del soporte y actualizaciones.</td>
+                    </tr>
+
+                    <tr>
+                        <td>descripcion</td>
+                        <td>String</td>
+                        <td>Descripción del videojuego.</td>
+                    </tr>
+
+                    <tr>
+                        <td>plataforma</td>
+                        <td>String</td>
+                        <td>Plataforma disponible.</td>
+                    </tr>
+
+                    <tr>
+                        <td>desarrolladora</td>
+                        <td>String</td>
+                        <td>Empresa desarrolladora.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="card footer">
+            <h2>API REST - Catálogo de Juegos</h2>
+
+            <p>
+                Proyecto desarrollado con Spring Boot + MongoDB.
+            </p>
+        </div>
+
+    </div>
+
+</body>
+</html>
